@@ -19,17 +19,17 @@
             <h1><a href="#">CHOI JI SOON</a></h1>
             <nav>
                <ul id="gnb">
-                  <li><a href="#">Main</a></li>
-                  <li><a href="#">Profile</a></li>
-                  <li><a href="#">Skill</a></li>
-                  <li><a href="#">Project</a></li>
+                  <li><a href="#main_page">Main</a></li>
+                  <li><a href="#profile">Profile</a></li>
+                  <li><a href="#skill">Skill</a></li>
+                  <li><a href="#project">Project</a></li>
                </ul>
             </nav>
          </div>
       </header>
       <div class="main_visual">
 
-         <section class="main_page">
+         <section id="main_page" class="main_page">
             <video src="./img/background.mp4" muted autoplay loop></video>
             <div class="main_text">
                <p>CHOI JI SOON</p>
@@ -37,7 +37,7 @@
             </div>
          </section>
 
-         <section class="profile">
+         <section id="profile" class="profile">
             <h2 class="profile_title">PROFILE</h2>
             <div class="profile_left">
                <img src="./img/Iprofile.jpg" alt="최지순 사진">
@@ -75,132 +75,95 @@
             </div>
          </section>
 
-         <section class="skill">
+         <section id="skill" class="skill">
             <h2 class="skill_title">SKILL</h2>
-               <div class="skill_container">
-                  <div class="skill_left">
-                     <img src="./img/photoshop.png" alt="포토샵 로고">
-                  </div>
-                  <div class="skill_right">
-                     <h3>PHOTOSHOP</h3>
-                     <p>포토샵의 툴을 이용하여 간단한 사진보정을 할 수 있습니다.</p>
-                  </div>
+            <div class="skill_container">
+
+               <div class="box">
+                  <img src="./img/photoshop.png" alt="Photoshop Logo" />
+                  <p>PHOTOSHOP</p>
+                  <p class="exp">포토샵 툴을 이용하여 간단한 사진보정 및 편집을 할 수 있습니다</p>
                </div>
 
-               <div class="skill_container">
-                  <div class="skill_left">
-                     <img src="./img/ai.png" alt="일러레 로고">
-                  </div>
-                  <div class="skill_right">
-                     <h3>ILLUSTRATOR</h3>
-                     <p>일러스트레이터를 이용하여 뭘 할 수 있지?</p>
-                  </div>
+               <div class="box">
+                  <img src="./img/ai.png" alt="Photoshop Logo" />
+                  <p>ILLUSTRATOR</p>
+                  <p class="exp">일러레로 내가 뭘 할 수 있었지?</p>
                </div>
 
-               <div class="skill_container">
-                  <div class="skill_left">
-                     <img src="./img/figma.png" alt= "피그마 로고">
-                  </div>
-                  <div class="skill_right">
-                     <h3>FIGMA</h3>
-                     <p>피그마를 이용하여 디자인 작업을 할 수 있습니다.</p>
-                  </div>
+               <div class="box">
+                  <img src="./img/figma.png" alt="Photoshop Logo" />
+                  <p>FIGMA</p>
+                  <p class="exp">피그마를 이용하여 웹 디자인을 할 수 있습니다</p>
                </div>
 
-               <div class="skill_container">
-                  <div class="skill_left">
-                     <img src="./img/html.png" alt="HTML 로고">
-                  </div>
-                  <div class="skill_right">
-                     <h3>HTML</h3>
-                     <p>HTML을 이용하여 웹 페이지의 구조를 최적화 할 수 있습니다.</p>
-                  </div>
+               <div class="box">
+                  <img src="./img/html.png" alt="Photoshop Logo" />
+                  <p>HTML</p>
+                  <p class="exp">홈페이지를 웹 표준과 웹 접근성 및 검색엔진 최적화을 준수하여 완성할 수 있습니다</p>
                </div>
 
-               <div class="skill_container">
-                  <div class="skill_left">
-                     <img src="./img/css.png" alt="CSS 로고">
-                  </div>
-                  <div class="skill_right">
-                     <h3>CSS</h3>
-                     <p>CSS를 이용하여 웹 페이지의 스타일링을 다룰 수 있습니다.</p>
-                  </div>
+               <div class="box">
+                  <img src="./img/css.png" alt="Photoshop Logo" />
+                  <p>CSS</p>
+                  <p class="exp">FlexBox와 Grid를 통해 반응형 홈페이지를 효율적으로 만드는 법을 배웠습니다</p>
                </div>
 
-               <div class="skill_container">
-                  <div class="skill_left">
-                     <img src="./img/js.png" alt="JavaScript 로고">
-                  </div>
-                  <div class="skill_right">
-                     <h3>JAVASCRIPT</h3>
-                     <p>JavaScript를 이용하여 웹에 동적인 기능을 추가할 수 있습니다.</p>
-                  </div>
+               <div class="box">
+                  <img src="./img/js.png" alt="Photoshop Logo" />
+                  <p>JAVASCRIPT</p>
+                  <p class="exp">함수와 라이브러리를 이용하여 웹페이지를 동적으로 구성할 수 있습니다</p>
                </div>
 
-               <div class="skill_container">
-                  <div class="skill_left">
-                     <img src="./img/jquery.png" alt="jquery 로고">
-                  </div>
-                  <div class="skill_right">
-                     <h3>JQUERY</h3>
-                     <p>Jquery를 이용하여 웹에 동적인 기능을 추가할 수 있습니다.</p>
-                  </div>
+               <div class="box">
+                  <img src="./img/jquery.png" alt="Photoshop Logo" />
+                  <p>JQUERY</p>
+                  <p class="exp">선택자를 이용하여 동작을 구현 할 수 있습니다</p>
                </div>
 
-               <div class="skill_container">
-                  <div class="skill_left">
-                     <img src="./img/react.png" alt="react 로고">
-                  </div>
-                  <div class="skill_right">
-                     <h3>REACT</h3>
-                     <p>React를 이용하여 JSX 언어를 사용할 수 있습니다.</p>
-                  </div>
+               <div class="box">
+                  <img src="./img/react.png" alt="Photoshop Logo" />
+                  <p>REACT</p>
+                  <p class="exp">React를 이용하여 JSX 언어를 사용할 수 있고 컴포넌트와 라우터를 이용하여 ..</p>
                </div>
+            </div>
          </section>
 
-         <section class="project">
+         <section id="project" class="project">
             <h2 class="project_title">PROJECT</h2>
 
-            <div class="project_container">
-               <div class="project_left">
-                  <h3>대명건설</h3>
-                  <div class="project_text">
-                     <p>html, css, jquery, js를 이용한 웹페이지 리뉴얼 프로젝트 입니다</p>
-                     <p>오른쪽 썸네일을 누르면 사이트로 이동합니다</p>
+               <div class="project_container">
+                  <div class="project_left">
+                     <img src="./img/daemyung.png" alt="대명건설 썸네일">
+                  </div>
+                  <div class="project_right">
+                     <h3>대명건설</h3>
+                     <p>기존 대명건설 사이트를 리뉴얼 하였습니다</p>
+                     <a href=""><button>사이트 이동</button></a>
                   </div>
                </div>
-               <div class="project_right">
-                  <a href="#"><img src="./img/daemyung.png" alt="대명건설 썸네일"></a>
+               <div class="project_container">
+                  <div class="project_left">
+                     <img src="./img/daemyung.png" alt="대명건설 썸네일">
+                  </div>
+                  <div class="project_right">
+                     <h3>대명건설</h3>
+                     <p>기존 대명건설 사이트를 리뉴얼 하였습니다</p>
+                     <a href=""><button>사이트 이동</button></a>
+                  </div>
                </div>
-            </div>
+               <div class="project_container">
+                  <div class="project_left">
+                     <img src="./img/daemyung.png" alt="대명건설 썸네일">
+                  </div>
+                  <div class="project_right">
+                     <h3>대명건설</h3>
+                     <p>기존 대명건설 사이트를 리뉴얼 하였습니다</p>
+                     <a href=""><button>사이트 이동</button></a>
+                  </div>
+               </div>
 
-            <div class="project_container">
-               <div class="project_left">
-                  <h3>대명건설</h3>
-                  <div class="project_text">
-                     <p>html, css, jquery, js를 이용한 웹페이지 리뉴얼 프로젝트 입니다</p>
-                     <p>오른쪽 썸네일을 누르면 사이트로 이동합니다</p>
-                  </div>
-               </div>
-               <div class="project_right">
-                  <a href="#"><img src="./img/daemyung.png" alt="대명건설 썸네일"></a>
-               </div>
-            </div>
-
-            <div class="project_container">
-               <div class="project_left">
-                  <h3>대명건설</h3>
-                  <div class="project_text">
-                     <p>html, css, jquery, js를 이용한 웹페이지 리뉴얼 프로젝트 입니다</p>
-                     <p>오른쪽 썸네일을 누르면 사이트로 이동합니다</p>
-                  </div>
-               </div>
-               <div class="project_right">
-                  <a href="#"><img src="./img/daemyung.png" alt="대명건설 썸네일"></a>
-               </div>
-            </div>
          </section>
-
       </div>
    </div>
 </body>
