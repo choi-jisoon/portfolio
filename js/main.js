@@ -8,7 +8,7 @@ let isInProjectSection = false;
 const mainText = document.querySelector('.main_text');
 mainText.style.opacity = 1;
 
-// GNB(메뉴)를 클릭할 때 해당 섹션으로 스크롤 이동
+//GNB를 클릭할 때 해당 섹션으로 스크롤 이동
 document.querySelectorAll('#gnb a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -74,7 +74,7 @@ window.addEventListener("wheel", (event) => {
 
 
 
-// 스킬 섹션 애니메이션
+//스킬 섹션 애니메이션
 const skillContainer = document.querySelector('.skill_container');
 gsap.set(skillContainer, { opacity: 0, y: 100 });
 
@@ -134,7 +134,7 @@ ScrollTrigger.create({
             ease: "power2.out"
         });
     },
-    // onLeave와 onLeaveBack 삭제하여 겹치는 애니메이션 제거
+    //onLeave와 onLeaveBack 삭제하여 겹치는 애니메이션 제거
 });
 
 const projectBoxes = document.querySelectorAll('.project_box');
@@ -151,7 +151,7 @@ ScrollTrigger.create({
     start: "top 100%",
     end: "bottom 100%",
     onEnter: () => {
-        document.body.style.overflowX = 'hidden';  // 애니메이션 시작 시 가로 스크롤 숨기기
+        document.body.style.overflowX = 'hidden';
         gsap.to(projectBoxes, {
             x: 0,
             y: 0,
@@ -161,12 +161,12 @@ ScrollTrigger.create({
             stagger: 0.15,
             ease: "power1.out",
             onComplete: () => {
-                document.body.style.overflowX = '';  // 애니메이션 완료 후 가로 스크롤 원복
+                document.body.style.overflowX = '';
             }
         });
     },
     onLeaveBack: () => {
-        document.body.style.overflowX = 'hidden';  // 애니메이션 시작 시 가로 스크롤 숨기기
+        document.body.style.overflowX = 'hidden';
         gsap.to(projectBoxes, {
             x: (i) => (i % 2 === 0 ? -400 : 400),
             y: (i) => (i % 2 === 0 ? -200 : 200),
@@ -176,7 +176,7 @@ ScrollTrigger.create({
             stagger: 0.15,
             ease: "power1.out",
             onComplete: () => {
-                document.body.style.overflowX = '';  // 애니메이션 완료 후 가로 스크롤 원복
+                document.body.style.overflowX = '';
             }
         });
     }
@@ -186,7 +186,7 @@ ScrollTrigger.create({
 
 
 
-// 모달 박스 처리
+//모달 박스 처리
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modal_title');
 const modalImage = document.getElementById('modal_image');
