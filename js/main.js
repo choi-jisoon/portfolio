@@ -124,7 +124,7 @@ gsap.set(projectContainer, { opacity: 0, y: 100 });
 
 ScrollTrigger.create({
     trigger: ".project",
-    start: "top 80%",
+    start: "top 90%",
     end: "bottom 100%",
     onEnter: () => {
         gsap.to(projectContainer, {
@@ -134,34 +134,10 @@ ScrollTrigger.create({
             ease: "power2.out"
         });
     },
-    onLeave: () => {
-        gsap.to(projectContainer, {
-            opacity: 0,
-            y: 100,
-            duration: 2,
-            ease: "power2.out"
-        });
-    },
-    onEnterBack: () => {
-        gsap.to(projectContainer, {
-            opacity: 1,
-            y: 0,
-            duration: 2,
-            ease: "power2.out"
-        });
-    },
-    onLeaveBack: () => {
-        gsap.to(projectContainer, {
-            opacity: 0,
-            y: 100,
-            duration: 2,
-            ease: "power2.out"
-        });
-    }
+    // onLeave와 onLeaveBack 삭제하여 겹치는 애니메이션 제거
 });
 
 const projectBoxes = document.querySelectorAll('.project_box');
-
 
 gsap.set(projectBoxes, {
     x: (i) => (i % 2 === 0 ? -400 : 400),
@@ -172,9 +148,10 @@ gsap.set(projectBoxes, {
 
 ScrollTrigger.create({
     trigger: ".project",
-    start: "top 80%",
+    start: "top 100%",
     end: "bottom 100%",
     onEnter: () => {
+        document.body.style.overflowX = 'hidden';  // 애니메이션 시작 시 가로 스크롤 숨기기
         gsap.to(projectBoxes, {
             x: 0,
             y: 0,
@@ -182,43 +159,29 @@ ScrollTrigger.create({
             scaleY: 1,
             duration: 2.5,
             stagger: 0.15,
-            ease: "power1.out"
-        });
-    },
-    onLeave: () => {
-        gsap.to(projectBoxes, {
-            x: (i) => (i % 2 === 0 ? -400 : 400),
-            y: (i) => (i % 2 === 0 ? -200 : 200),
-            scaleX: 0,
-            scaleY: 0,
-            duration: 2.5,
-            stagger: 0.15,
-            ease: "power1.out"
-        });
-    },
-    onEnterBack: () => {
-        gsap.to(projectBoxes, {
-            x: 0,
-            y: 0,
-            scaleX: 1,
-            scaleY: 1,
-            duration: 2.5,
-            stagger: 0.15,
-            ease: "power1.out"
+            ease: "power1.out",
+            onComplete: () => {
+                document.body.style.overflowX = '';  // 애니메이션 완료 후 가로 스크롤 원복
+            }
         });
     },
     onLeaveBack: () => {
+        document.body.style.overflowX = 'hidden';  // 애니메이션 시작 시 가로 스크롤 숨기기
         gsap.to(projectBoxes, {
             x: (i) => (i % 2 === 0 ? -400 : 400),
             y: (i) => (i % 2 === 0 ? -200 : 200),
             scaleX: 0,
             scaleY: 0,
-            duration: 2.5,
+            duration: 1.5,
             stagger: 0.15,
-            ease: "power1.out"
+            ease: "power1.out",
+            onComplete: () => {
+                document.body.style.overflowX = '';  // 애니메이션 완료 후 가로 스크롤 원복
+            }
         });
     }
 });
+
 
 
 
