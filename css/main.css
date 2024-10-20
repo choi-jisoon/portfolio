@@ -1,9 +1,11 @@
 * {font-family: notosans, 'pretendard'; background-color: #000; color: #FFF;}
+p {background-color: rgba(0, 0, 0, 0.0);}
 body {
    font-family: notosans, 'pretendard';
 }
 section {
-   scroll-margin-top: 110px;
+   scroll-margin-top: 100px;
+   height: 100vh;
 }
 
 header {
@@ -17,10 +19,9 @@ header {
    top: 0;
    left: 0;
    right: 0;
-   background-color: black;
+   background-color: none;
    height: 100px;
    font-family: 'pretendard';
-
 }
 
 .header_group {
@@ -30,7 +31,7 @@ header {
 }
 
 header h1 {
-
+   background-color: none;
 }
 
 header h1 a {
@@ -40,10 +41,11 @@ header h1 a {
    z-index: 15;
    text-decoration: none;
    font-weight: 700;
+   background-color: none;
 }
 
 header nav {
-
+   background-color: none;
 }
 
 header nav ul#gnb {
@@ -121,12 +123,12 @@ header nav ul#gnb>li>a {
    display: flex;
    position: relative;
    width: 100%;
-   height: 70vh;
+   height: 80vh;
    justify-content: center;
    align-items: center;
-   gap: 300px;
+   gap: 380px;
    margin-top: 350px;
-   padding: 90px;
+   padding: 90px; /* 상단 여백을 조정하여 제목과 간격 조정 */
    background-color: #000;
    color: #FFF;
    margin-bottom: 70px;
@@ -134,16 +136,18 @@ header nav ul#gnb>li>a {
 }
 
 .profile_title {
-   position: absolute;
-   top: 0%;
-   left: 9%;
+   position: absolute; /* absolute로 다시 설정 */
+   top: 20px; /* 원하는 위치로 조정 */
+   left: 9%; /* 왼쪽 여백을 조정하여 맞춤 */
    font-size: 50px;
    font-weight: bold;
    color: #FFF;
+   margin-bottom: 20px; /* 아래쪽 여백 추가 */
 }
 
 /* 왼쪽 이미지 */
 .profile_left img {
+   margin-top: -100px;
    max-width: 400px;
    height: auto;
    margin-left: 100px;
@@ -151,6 +155,7 @@ header nav ul#gnb>li>a {
 
 /* 오른쪽 정보 */
 .profile_right {
+   margin-top: -90px;
    display: grid;
    grid-template-columns: 1fr 1fr;
    grid-template-rows: auto;
@@ -226,13 +231,12 @@ header nav ul#gnb>li>a {
 
 /* skill */
 .skill {
-   margin-top: 150px;
-   width: 100%; height: 100vh;
+   width: 100%; height: 100vh; z-index: 9999;
 }
 
 .skill_title {
    font-size: 50px; font-weight: 700;
-   width: 80%; margin: auto; margin-bottom: 100px;
+   width: 80%; margin: auto; margin-bottom: 80px;
 }
 
 .skill_container {
@@ -241,12 +245,13 @@ header nav ul#gnb>li>a {
    gap: 50px;
    width: 80%;
    margin: auto;
-
+   opacity: 0; /* 초기 투명도 설정 */
+   transform: translateY(150px); /* 아래에서 올라오는 효과를 위해 Y축으로 이동 */
+   transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* 부드러운 전환 효과 */
 }
 
 .box {
    width: 60%;
-   padding: 10px;
    margin: auto;
    text-align: center;
    aspect-ratio: 1 / 1;
@@ -278,59 +283,124 @@ header nav ul#gnb>li>a {
 
 /* project */
 .project {
-   display: flex;
-   flex-direction: row;
-   margin-top: 100px;
-   overflow: hidden;
-   width: 300vw;
-   background-color: #000;
-   color: #FFF;
+   width: 100%; height: 90vh;
+   background-color: rgba(0, 0, 0, 0.0);
 }
 
 .project_title {
-   position: absolute;
-   left: 3.3%;
    font-size: 50px; font-weight: 700;
-   z-index: 10;
+   width: 80%; margin: auto; margin-bottom: 80px;
+   background-color: rgba(0, 0, 0, 0.0);
 }
 
 .project_container {
+   background-color: rgba(0, 0, 0, 0.0);
+   display: grid;
+   grid-template-columns: repeat(4, 0.5fr);
+   width: 87%;
+   margin: auto;
+   opacity: 0; /* 초기 투명도 설정 */
+   transform: translateY(150px); /* 아래에서 올라오는 효과를 위해 Y축으로 이동 */
+   transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* 부드러운 전환 효과 */
+   margin-top: 100px;
+}
+
+.project_box {
+   background-color: rgba(0, 0, 0, 0.0);
+   width: 80%;
+   margin: auto;
+   text-align: center;
+   aspect-ratio: 1 / 1;
+   border-radius: 10px;
+   transition: transform 0.3s;
    display: flex;
-   flex-direction: row;
-   width: 100vw;
-   height: 80vh;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
-   text-align: center;
-   margin-top: 40px;
-   gap: 200px;
 }
-
-.project_left {
-   margin-right: 50px;
+.project_box:hover {
+   transform: scale(1.1) !important;
 }
-
-.project img {
-   width: 500px;
-   height: 300px;
+.project_box img {
+   background-color: none;
+   max-width: 70%;
+   margin-bottom: 50px;
 }
-
-.project_right {
-   max-width: 500px;
-   white-space: nowrap;
-   line-height: 4;
-}
-
-.project h3 {
-   font-size: 32px;
+.project_box p {
+   background-color: rgba(0, 0, 0, 0.0);
+   color: #fff;
+   margin: 0;
    font-weight: 700;
 }
 
-.project_right p {
+.modal {
+   display: none; /* 기본적으로 숨김 */
+   position: fixed;
+   z-index: 1000; /* 다른 요소 위에 표시 */
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto; /* 필요 시 스크롤 */
+   background-color: rgba(0, 0, 0, 0.9); /* 반투명 배경 */
+}
+
+.modal_content {
+   position: relative;
+   margin: 6% auto; /* 수직 중앙에 배치 */
+   padding: 20px;
+   width: 80%; /* 모달창 너비 */
+   max-width: 1000px; /* 최대 너비 */
+   height: 700px;/* 최대 너비 */
+   background-color: #333;
+   border-radius: 8px; /* 모서리 둥글게 */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+   text-align: center; /* 텍스트 가운데 정렬 */
+}
+.modal_content #modal_title {
+   font-weight: bold;
+   font-size: 32px;
+   background-color: rgba(0, 0, 0, 0.0);
+   margin-bottom: 60px;
+   margin-left: 30px;
+}
+
+.modal_content #modal_description {
+   background-color: #333;
+   padding: 10px; /* 필요에 따라 패딩 추가 */
+   margin-top: 50px; /* 기본 마진 없애기 */
    font-size: 18px;
-   margin-bottom: 20px;
+   line-height: 1.5em;
 }
-.project_right button {
-   border: 1px solid #FFF;
-   font-weight: 700; cursor: pointer;
+
+.close {
+   background-color: rgba(0, 0, 0, 0.0);
+   color: #F00;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
 }
+
+.close:hover,
+.close:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+}
+.modal_button {
+   display: inline-block; /* 인라인 블록으로 표시 */
+   padding: 10px 20px; /* 버튼 패딩 */
+   margin-top: 30px; /* 버튼과 다른 요소 간의 여백 */
+   background-color: #007BFF; /* 배경 색상 */
+   color: white; /* 텍스트 색상 */
+   border: none; /* 테두리 제거 */
+   border-radius: 4px; /* 모서리 둥글게 */
+   text-decoration: none; /* 밑줄 제거 */
+   font-size: 16px; /* 폰트 크기 */
+   transition: background-color 0.3s; /* 호버 시 부드러운 효과 */
+}
+
+.modal_button:hover {
+   background-color: #0056b3; /* 호버 시 배경 색상 변경 */
+}
+

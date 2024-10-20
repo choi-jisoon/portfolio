@@ -8,9 +8,13 @@
    <link rel="stylesheet" href="css/fonts.css">
    <link rel="stylesheet" href="css/main.css">
    <!-- js -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
-   <script defer src="./js/main.js"></script>
+   <!-- GSAP -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
+
+   <script src="./js/main.js" defer></script>
 </head>
 <body>
    <div class="wrap">
@@ -131,39 +135,52 @@
 
          <section id="project" class="project">
             <h2 class="project_title">PROJECT</h2>
+            <div class="project_container">
 
-               <div class="project_container">
-                  <div class="project_left">
-                     <img src="./img/daemyung.png" alt="대명건설 썸네일">
-                  </div>
-                  <div class="project_right">
-                     <h3>대명건설</h3>
-                     <p>기존 대명건설 사이트를 리뉴얼 하였습니다</p>
-                     <a href=""><button>사이트 이동</button></a>
-                  </div>
-               </div>
-               <div class="project_container">
-                  <div class="project_left">
-                     <img src="./img/daemyung.png" alt="대명건설 썸네일">
-                  </div>
-                  <div class="project_right">
-                     <h3>대명건설</h3>
-                     <p>기존 대명건설 사이트를 리뉴얼 하였습니다</p>
-                     <a href=""><button>사이트 이동</button></a>
-                  </div>
-               </div>
-               <div class="project_container">
-                  <div class="project_left">
-                     <img src="./img/daemyung.png" alt="대명건설 썸네일">
-                  </div>
-                  <div class="project_right">
-                     <h3>대명건설</h3>
-                     <p>기존 대명건설 사이트를 리뉴얼 하였습니다</p>
-                     <a href=""><button>사이트 이동</button></a>
-                  </div>
+               <div class="project_box" data-link="https://www.naver.com" data-title="대명건설" data-description="<p>기존 대명건설 사이트를 리뉴얼 한 사이트 입니다.</p><br><p>작업 프로그램 : html, css, js, figma</p><br><p>기여도 : 100%</p>" data-image="./img/daemyung_small.png">
+                  <img src="./img/daemyung.png" alt="대명건설 썸네일" />
+                  <p>대명건설</p>
                </div>
 
+               <div class="project_box" data-link="https://choi-jisoon.github.io/kaist/" data-title="카이스트 녹색성장지속가능대학원" data-description="<p>기존 카이스트 대학원 사이트를 따라 클론 코딩 했습니다</p><br><p>작업 프로그램 : html, css, js</p><br><p>기여도 : 100%</p>" data-image="./img/kaist_small.png">
+                  <img src="./img/kaist.PNG" alt="카이스트 썸네일" />
+                  <p>카이스트</p>
+               </div>
+
+               <div class="project_box">
+                  <img src="./img/ai.png" alt="썸네일" />
+                  <p>프로젝트 3</p>
+               </div>
+
+               <div class="project_box">
+                  <img src="./img/figma.png" alt="썸네일" />
+                  <p>프로젝트 4</p>
+               </div>
+
+               <div class="project_box">
+                  <img src="./img/html.png" alt="썸네일" />
+                  <p>프로젝트 5</p>
+               </div>
+
+               <div class="project_box">
+                  <img src="./img/jquery.png" alt=" 썸네일" />
+                  <p>프로젝트 6</p>
+               </div>
+            </div>
          </section>
+
+      <!-- 모달 창 구조 -->
+      <div id="modal" class="modal">
+            <div class="modal_content">
+               <span class="close">&times;</span>
+               <h2 id="modal_title"></h2>
+               <img id="modal_image" src="" alt="" />
+               <p id="modal_description"></p>
+               <a id="modal_button" class="modal_button" href="" target="_blank">사이트 바로가기</a>
+            </div>
+      </div>
+
+
       </div>
    </div>
 </body>
