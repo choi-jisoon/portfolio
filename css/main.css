@@ -1,4 +1,4 @@
-* {font-family: notosans, 'pretendard'; background-color: #000; color: #FFF;}
+* {font-family: notosans, 'pretendard'; background-color: #000; color: #FFF; overflow-x: hidden;}
 p {background-color: rgba(0, 0, 0, 0.0);}
 body {
    font-family: notosans, 'pretendard';
@@ -289,7 +289,7 @@ header nav ul#gnb>li>a {
 
 .project_title {
    font-size: 50px; font-weight: 700;
-   width: 80%; margin: auto; margin-bottom: 80px;
+   width: 80%; margin: auto; margin-bottom: 50px;
    background-color: rgba(0, 0, 0, 0.0);
 }
 
