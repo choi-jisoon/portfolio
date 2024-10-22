@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/* 한글 폰트 notosans */
+@font-face {
+    font-family:'notosans';
+    src: url(../fonts/NotoSansKR-Light.ttf);
+    font-weight: 400;
+}
+@font-face {
+    font-family:'notosans';
+    src: url(../fonts/NotoSansKR-Bold.ttf);
+    font-weight: 700;
+}
+@font-face {
+    font-family:'notosans';
+    src: url(../fonts/NotoSansKR-Regular.ttf);
+    font-weight: 500;
+}
+/* 서라운드 */
+@font-face {
+    font-family: 'surround';
+    src: url(../fonts/Cafe24Ssurround-v2.0.ttf);
+}
+/* Pretendard */
+@font-face {
+    font-family:'pretendard';
+    src: url(../fonts/Pretendard-Light.woff);
+    font-weight: 400;
+}
+@font-face {
+    font-family:'pretendard';
+    src: url(../fonts/Pretendard-Bold.woff);
+    font-weight: 700;
+}
+@font-face {
+    font-family:'pretendard';
+    src: url(../fonts/Pretendard-Regular.woff);
+    font-weight: 500;
+}
+
+
+

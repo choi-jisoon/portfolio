@@ -1,0 +1,488 @@
+* {font-family: notosans, 'pretendard'; background-color: #FFF; text-decoration: none; box-sizing: border-box;}
+p {background-color: rgba(0, 0, 0, 0.0);}
+body {
+   font-family: notosans, 'pretendard';
+}
+section {
+   scroll-margin-top: 100px;
+   height: 100vh;
+}
+
+header {
+   display: flex;
+   position: fixed;
+   justify-content: center;
+   align-items: center;
+   padding: 0 20px;
+   margin: 0;
+   z-index: 10;
+   top: 0;
+   left: 0;
+   right: 0;
+   background: none;
+   height: 100px;
+
+   font-family: 'pretendard';
+
+}
+
+.header_group {
+   display: flex;
+   width: 90%;
+   justify-content: space-between;
+   background: none;
+
+}
+
+header h1 {
+   background: none;
+
+}
+
+header h1 a {
+   background: none;
+   display: block;
+   font-size: 24px;
+   color: #000;
+   z-index: 15;
+   text-decoration: none;
+   font-weight: 700;
+}
+
+header nav {
+   background: none;
+}
+
+header nav ul#gnb {
+   background: none;
+   display: flex;
+   margin: 0;
+   gap: 60px;
+
+   margin-right: 10px;
+}
+
+header nav ul#gnb>li {
+   position: relative;
+   background: none;
+
+}
+
+header nav ul#gnb>li>a {
+   background: none !important;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 18px;
+   font-weight: 600;
+   white-space: nowrap;
+   color: #000;
+}
+
+
+
+
+
+/* mainpage */
+
+.main_page {
+   position: relative;
+   width: 100%;
+   height: 100vh;
+}
+
+/* .main_page video {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 1;
+} */
+
+
+.main1{
+   font-family: 'pretendard';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 100px;
+   font-weight: bold;
+   text-align: center;
+   z-index: 2;
+   opacity: 0;
+   transition: opacity 1.5s ease-in-out;
+   background: none;
+}
+.moved {
+   left: 18.3%;
+   top: 20%;
+   transition: left 1.0s ease-in-out, top 1.0s ease-in-out;
+}
+
+.main2, .main3, .main4 {
+   font-family: 'Pretendard';
+   position: absolute;
+   opacity: 0;
+   transform: translateY(-100px); /* 처음에 Y축 -100px 위에서 시작 */
+   transition: opacity 0.5s ease, transform 0.5s ease; /* opacity와 위치 이동을 부드럽게 */
+   font-size: 100px;
+   font-weight: bold;
+   z-index: 2;
+}
+
+.main2 {
+top: 35%;
+left: 15%;
+transform: translate(-20%, -100px);
+}
+
+.main3 {
+top: 52%;
+left: 15%;
+transform: translate(-11%, -100px);
+}
+
+.main4 {
+top: 68%;
+left: 15%;
+transform: translate(-15%, -100px);
+}
+
+
+.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+.main_img {
+   opacity: 0; transition: opacity 1.5s ease;
+}
+.main_img p {
+   font-weight: bold;
+   font-size: 28px;
+   position: absolute;
+   top: 33%;
+   left: 70.7%;
+   z-index: 10;
+   animation: scrollDown 1.5s infinite ease-in-out
+}
+.scrolldown {
+   position: absolute;
+   top: 39%;
+   left: 70%;
+   width: 200px;
+   height: 200px;
+   animation: scrollDown 1.5s infinite ease-in-out
+}
+
+@keyframes scrollDown {
+   0%, 100% {
+      transform: translateY(0) ;
+   }
+   50% {
+      transform: translateY(50px);
+   }
+}
+
+
+/* profile */
+.profile {
+   display: flex;
+   position: relative;
+   width: 100%;
+   height: 80vh;
+   justify-content: center;
+   align-items: center;
+   gap: 380px;
+   margin-top: 350px;
+   padding: 90px;
+   background: none;
+   margin-bottom: 70px;
+   font-family: 'notosans';
+
+}
+
+.profile_title {
+   opacity: 1;
+   position: absolute;
+   top: 20px;
+   left: 9%;
+   font-size: 50px;
+   font-weight: bold;
+}
+
+.profile_left{background: none;}
+/* 왼쪽 이미지 */
+.profile_left img {
+   margin-top: 100px;
+   max-width: 500px;
+   height: auto;
+   margin-left: 90px;
+   background: none;
+}
+
+/* 오른쪽 정보 */
+.profile_right {
+   background: none;
+   margin-top: 120px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: auto;
+   grid-template-areas:
+      "profile_name education"
+      "certificates experience";
+   width: 60%;
+   row-gap: 100px;
+   column-gap: 0px;
+   z-index: 100;
+}
+
+/* 이름, 전화번호, 생년월일, 이메일 */
+.profile_name {
+   grid-area: profile_name;
+}
+
+.profile_name li {
+   font-size: 20px;
+   font-weight: 700;
+   margin-bottom: 20px;
+   white-space: nowrap;
+}
+
+/* 학력 */
+.education {
+   grid-area: education;
+}
+
+.education li:first-child {
+   font-weight: bold;
+   font-size: 22px;
+   margin-bottom: 30px;
+}
+
+.education li {
+   font-size: 18px;
+   margin-bottom: 15px;
+}
+
+/* 자격증 */
+.certificates {
+   grid-area: certificates;
+}
+
+.certificates li:first-child {
+   font-weight: bold;
+   font-size: 22px;
+   margin-bottom: 30px;
+}
+
+.certificates li {
+   font-size: 18px;
+   margin-bottom: 15px;
+}
+
+/* 경력 */
+.experience {
+   grid-area: experience;
+}
+
+.experience li:first-child {
+   font-weight: bold;
+   font-size: 22px;
+   margin-bottom: 30px;
+}
+
+.experience li {
+   font-size: 18px;
+   margin-bottom: 15px;
+}
+
+
+
+
+/* skill */
+.skill {
+   width: 100%; height: 100vh; z-index: 9999;
+   margin-top: 90px;
+}
+
+.skill_title {
+   font-size: 50px; font-weight: 700;
+   width: 80%; margin: auto; margin-bottom: 90px;
+
+}
+
+.skill_container {
+   display: grid;
+   grid-template-columns: repeat(4, 0.5fr);
+   gap: 50px;
+   width: 80%;
+   margin: auto;
+   opacity: 0;
+   transform: translateY(150px);
+   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.box {
+   width: 60%;
+   margin: auto;
+   text-align: center;
+   aspect-ratio: 1 / 1;
+   border-radius: 10px;
+   transition: transform 0.3s;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #000;
+}
+.box:hover {
+   transform: scale(1.05);
+}
+.box img {
+   max-width: 60%;
+   margin-bottom: 50px;
+}
+.box p {
+
+   margin: 0;
+   font-weight: 700;
+}
+.box .exp {
+   font-weight: 500;
+   margin-top: 20px;
+   font-size: 16px;
+
+}
+
+/* project */
+.project {
+   width: 100%; height: 88vh;
+   color: #000;
+}
+
+.project_title {
+   font-size: 50px; font-weight: 700;
+   width: 80%; margin: auto; margin-bottom: 50px;
+
+}
+
+.project_container {
+   display: grid;
+   grid-template-columns: repeat(4, 0.5fr);
+   width: 87%;
+   margin: auto;
+   opacity: 0;
+   transform: translateY(150px);
+   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+   margin-top: 50px;
+}
+
+.project_box {
+   background: none;
+   cursor: pointer;
+   width: 80%;
+   margin: auto;
+   text-align: center;
+   aspect-ratio: 1 / 1;
+   border-radius: 10px;
+   transition: transform 0.3s;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.project_box:hover {
+   transform: scale(1.1) !important;
+}
+.project_box img {
+   background-color: none;
+   width: 80%; height: auto;
+   margin-bottom: 50px;
+}
+.project_box p {
+   background-color: rgba(0, 0, 0, 0.0);
+   color: #000;
+   margin: 0;
+   font-weight: 700;
+}
+
+.modal {
+   display: none;
+   position: fixed;
+   z-index: 1000;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgba(0, 0, 0, 0.9);
+   color: #FFF !important;
+}
+
+.modal_content {
+   position: relative;
+   margin: 6% auto;
+   padding: 20px;
+   width: 80%;
+   max-width: 1000px;
+   height: 700px;
+   background-color: #333;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   text-align: center;
+   color: #FFF;
+}
+.modal_content #modal_title {
+   font-weight: bold;
+   font-size: 32px;
+   background-color: rgba(0, 0, 0, 0.0);
+   margin-top: 20px;
+   margin-bottom: 50px;
+   margin-left: 30px;
+   color: #FFF;
+}
+
+.modal_content #modal_description {
+   background-color: #333;
+   padding: 10px;
+   margin-top: 30px;
+   font-size: 18px;
+   line-height: 1.1em;
+   color: #FFF;
+}
+
+.close {
+   background-color: rgba(0, 0, 0, 0.0);
+   color: #F00;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+}
+.modal_button {
+   display: inline-block;
+   padding: 10px 20px;
+   margin-top: 30px;
+   background-color: #007BFF;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   text-decoration: none;
+   font-size: 16px;
+   transition: background-color 0.3s;
+}
+
+.modal_button:hover {
+   background-color: #0056b3;
+}
+
