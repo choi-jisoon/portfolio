@@ -5,7 +5,7 @@ body {
 }
 section {
    scroll-margin-top: 100px;
-   height: 100vh;
+
 }
 
 header {
@@ -58,7 +58,6 @@ header nav ul#gnb {
    display: flex;
    margin: 0;
    gap: 60px;
-
    margin-right: 10px;
 }
 
@@ -113,7 +112,7 @@ header nav ul#gnb>li>a {
    text-align: center;
    z-index: 2;
    opacity: 0;
-   transition: opacity 1.5s ease-in-out;
+   transition: opacity 1s ease-in-out;
    background: none;
 }
 .moved {
@@ -125,30 +124,34 @@ header nav ul#gnb>li>a {
 .main2, .main3, .main4 {
    font-family: 'Pretendard';
    position: absolute;
-   opacity: 0;
-   transform: translateY(-100px); /* 처음에 Y축 -100px 위에서 시작 */
-   transition: opacity 0.5s ease, transform 0.5s ease; /* opacity와 위치 이동을 부드럽게 */
+   opacity: 1;
+   /* transform: translateY(-100px); */
+   /* transition: opacity 0.5s ease, transform 0.5s ease; */
    font-size: 100px;
    font-weight: bold;
    z-index: 2;
+   transform: translateX(0);
 }
 
 .main2 {
 top: 35%;
 left: 15%;
-transform: translate(-20%, -100px);
+color: blue;
+
+/* transform: translate(-20%, -100px); */
 }
 
 .main3 {
 top: 52%;
 left: 15%;
-transform: translate(-11%, -100px);
+/* transform: translate(-11%, -100px); */
 }
 
 .main4 {
 top: 68%;
 left: 15%;
-transform: translate(-15%, -100px);
+color: blue;
+/* transform: translate(-15%, -100px); */
 }
 
 
@@ -196,9 +199,9 @@ transform: translateY(0);
    height: 80vh;
    justify-content: center;
    align-items: center;
-   gap: 380px;
+   gap: 170px;
    margin-top: 350px;
-   padding: 90px;
+
    background: none;
    margin-bottom: 70px;
    font-family: 'notosans';
@@ -234,7 +237,7 @@ transform: translateY(0);
    grid-template-areas:
       "profile_name education"
       "certificates experience";
-   width: 60%;
+   width: 38%;
    row-gap: 100px;
    column-gap: 0px;
    z-index: 100;
@@ -366,14 +369,14 @@ transform: translateY(0);
 
 .project_title {
    font-size: 50px; font-weight: 700;
-   width: 80%; margin: auto; margin-bottom: 50px;
+   width: 80%; margin: auto; margin-bottom: 70px;
 
 }
 
 .project_container {
    display: grid;
    grid-template-columns: repeat(4, 0.5fr);
-   width: 87%;
+   width: 80%;
    margin: auto;
    opacity: 0;
    transform: translateY(150px);
@@ -384,7 +387,7 @@ transform: translateY(0);
 .project_box {
    background: none;
    cursor: pointer;
-   width: 80%;
+   width: 70%;
    margin: auto;
    text-align: center;
    aspect-ratio: 1 / 1;
@@ -394,6 +397,8 @@ transform: translateY(0);
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   margin-bottom: 100px;
+   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .project_box:hover {
    transform: scale(1.1) !important;
