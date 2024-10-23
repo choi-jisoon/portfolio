@@ -60,24 +60,44 @@ window.addEventListener("load", () => {
 
 
     // 휠 스크롤로 섹션 간 이동
+    const projectSection = document.querySelector(".project");
+    const projectTitle = document.querySelector(".project_title");
+
+
     window.addEventListener("wheel", (event) => {
         if (isScrolling || !animationCompleted || !homeAnimationFinished) return;
 
         const delta = event.deltaY;
 
+        // 스크롤이 너무 작으면 동작 안함
         if (Math.abs(delta) < scrollThreshold) return;
 
-        if (delta > 0 && currentSection < sections.length - 1) {
-            currentSection++;
-        } else if (delta < 0 && currentSection > 0) {
-            currentSection--;
+        // 현재 섹션이 프로젝트 섹션일 경우
+        if (currentSection === Array.from(sections).indexOf(projectSection)) {
+            const projectTitleRect = projectTitle.getBoundingClientRect();
+
+            // project_title의 top이 header 높이와 만나면 이전 섹션으로 스크롤 이동 허용
+            if (delta < 0 && projectTitleRect.top >= headerHeight) {
+                currentSection--;
+            } else if (delta > 0 && currentSection < sections.length - 1) {
+                currentSection++;
+            } else {
+                return;
+            }
         } else {
-            return;
+            // 프로젝트 섹션 외에서는 기존 방식으로 섹션 이동
+            if (delta > 0 && currentSection < sections.length - 1) {
+                currentSection++;
+            } else if (delta < 0 && currentSection > 0) {
+                currentSection--;
+            } else {
+                return;
+            }
         }
 
         isScrolling = true;
 
-        let targetScrollPosition = sections[currentSection].offsetTop - headerHeight ;
+        let targetScrollPosition = sections[currentSection].offsetTop - headerHeight;
         gsap.to(window, {
             scrollTo: { y: targetScrollPosition },
             duration: 1.5,

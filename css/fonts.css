@@ -4,7 +4,7 @@
 @font-face {
     font-family:'notosans';
     src: url(../fonts/NotoSansKR-Light.ttf);
-    font-weight: 400;
+    font-weight: 300;
 }
 @font-face {
     font-family:'notosans';
@@ -14,7 +14,7 @@
 @font-face {
     font-family:'notosans';
     src: url(../fonts/NotoSansKR-Regular.ttf);
-    font-weight: 500;
+    font-weight: 400;
 }
 /* 서라운드 */
 @font-face {
