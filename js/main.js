@@ -316,14 +316,17 @@ window.addEventListener("load", () => {
 
 
     /* 모달 박스 처리 */
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modal_title');
-    const modalImage = document.getElementById('modal_image');
-    const modalDescription = document.getElementById('modal_description');
-    const closeModal = document.querySelector('.close');
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modal_title');
+const modalImage = document.getElementById('modal_image');
+const modalDescription = document.getElementById('modal_description');
+const closeModal = document.querySelector('.close');
 
-    projectBoxes.forEach(box => {
-        box.addEventListener('click', () => {
+// 각 .project_box 내의 .project_btn1 버튼에 클릭 이벤트 추가
+projectBoxes.forEach(box => {
+    const btn1 = box.querySelector('.project_btn1');
+    if (btn1) {
+        btn1.addEventListener('click', () => {
             const title = box.getAttribute('data-title');
             const description = box.getAttribute('data-description');
             const image = box.getAttribute('data-image');
@@ -336,16 +339,17 @@ window.addEventListener("load", () => {
 
             modal.style.display = "block";
         });
-    });
+    }
+});
 
-    closeModal.addEventListener('click', () => {
+// 모달 닫기 이벤트
+closeModal.addEventListener('click', () => {
+    modal.style.display = "none";
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
         modal.style.display = "none";
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-        ScrollTrigger.refresh();
+    }
+});
     });
