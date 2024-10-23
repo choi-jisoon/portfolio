@@ -376,7 +376,7 @@ transform: translateY(0);
 .project_container {
    display: grid;
    grid-template-columns: repeat(4, 0.5fr);
-   width: 80%;
+   width: 75%;
    margin: auto;
    opacity: 0;
    transform: translateY(150px);
@@ -449,6 +449,11 @@ transform: translateY(0);
    margin-bottom: 50px;
    margin-left: 30px;
    color: #FFF;
+}
+
+.modal_content #modal_description .pfirst {
+   font-weight: 510;
+   margin-bottom: 20px;
 }
 
 .modal_content #modal_description {
