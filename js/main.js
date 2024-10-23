@@ -155,6 +155,7 @@ window.addEventListener("load", () => {
         gsap.set(mainText1, { opacity: 0 });
         mainText1.classList.remove('moved');
         gsap.set(mainImg, { opacity: 0 });
+
     }
 
     // 홈 섹션 애니메이션 재실행 함수
