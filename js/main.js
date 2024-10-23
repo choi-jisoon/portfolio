@@ -12,16 +12,15 @@ window.addEventListener("load", () => {
     let currentSection = 0;
     let isScrolling = false;
     let animationCompleted = false;
-    let lastScrollTime = 0;
     let homeAnimationFinished = false; // 홈 섹션 애니메이션 완료 여부
     const scrollThreshold = 100;
 
-    // 스크롤 비활성화하는 함수
+    //스크롤 비활성화
     function disableScroll() {
         window.addEventListener('wheel', preventScroll, { passive: false });
     }
 
-    // 스크롤 활성화하는 함수
+    //스크롤 활성화
     function enableScroll() {
         window.removeEventListener('wheel', preventScroll, { passive: false });
     }
@@ -57,6 +56,9 @@ window.addEventListener("load", () => {
         });
     });
 
+
+
+
     // 휠 스크롤로 섹션 간 이동
     window.addEventListener("wheel", (event) => {
         if (isScrolling || !animationCompleted || !homeAnimationFinished) return;
@@ -91,6 +93,10 @@ window.addEventListener("load", () => {
         event.preventDefault();
     }, { passive: false });
 
+
+
+
+
     // 홈 섹션 애니메이션 실행
     function startHomeAnimation() {
         const mainText1 = document.querySelector('.main1');
@@ -111,7 +117,6 @@ window.addEventListener("load", () => {
             mainImg.style.opacity = 1;
         }, 1500);
 
-        // 애니메이션 완료 후 스크롤 활성화
         setTimeout(() => {
             homeAnimationFinished = true;
             enableScroll(); // 애니메이션이 끝난 후 스크롤 활성화
@@ -144,34 +149,56 @@ window.addEventListener("load", () => {
     // 홈 섹션 애니메이션 초기화 함수
     function resetMainAnimation() {
         const mainText1 = document.querySelector('.main1');
-        mainText1.style.opacity = 0;
+        const mainImg = document.querySelector('.main_img');
+
+        //opacity를 0으로 하고, 위치 및 클래스 초기화
+        gsap.set(mainText1, { opacity: 0 });
         mainText1.classList.remove('moved');
+        gsap.set(mainImg, { opacity: 0 });
     }
 
     // 홈 섹션 애니메이션 재실행 함수
     function restartHomeAnimation() {
         animationCompleted = false;
         homeAnimationFinished = false;
-        disableScroll(); // 애니메이션 재실행 시 스크롤 비활성화
+        disableScroll();
+
         const mainText1 = document.querySelector('.main1');
+        const mainImg = document.querySelector('.main_img');
+
+
         mainText1.style.opacity = 0;
         mainText1.classList.remove('moved');
+
+
+        mainImg.style.opacity = 0;
+
 
         setTimeout(() => {
             mainText1.style.opacity = 1;
             mainText1.classList.add('moved');
         }, 1500);
 
+
+        setTimeout(() => {
+            mainImg.style.opacity = 1;
+        }, 2000);
+
         setTimeout(() => {
             homeAnimationFinished = true;
-            enableScroll(); // 애니메이션이 끝난 후 스크롤 활성화
+            enableScroll();
         }, 2300);
 
         ScrollTrigger.refresh();
     }
-
     // 애니메이션 시작
     startHomeAnimation();
+
+
+
+
+
+
 
     /* 프로필 섹션 애니메이션 */
     const profileLeft = document.querySelector('.profile_left');
@@ -200,6 +227,8 @@ window.addEventListener("load", () => {
         }
     });
 
+
+
     /* 스킬 섹션 애니메이션 */
     const skillContainer = document.querySelector('.skill_container');
     gsap.set(skillContainer, { opacity: 0, y: 100 });
@@ -217,6 +246,8 @@ window.addEventListener("load", () => {
             });
         }
     });
+
+
 
     /* 프로젝트 섹션 애니메이션 */
     const projectContainer = document.querySelector('.project_container');
@@ -260,6 +291,9 @@ window.addEventListener("load", () => {
         }
     });
 
+
+
+
     /* 모달 박스 처리 */
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modal_title');
@@ -292,7 +326,5 @@ window.addEventListener("load", () => {
             modal.style.display = "none";
         }
     });
-
-    // ScrollTrigger 새로고침으로 레이아웃 초기화
-    ScrollTrigger.refresh();
-});
+        ScrollTrigger.refresh();
+    });
