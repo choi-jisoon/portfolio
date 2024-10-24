@@ -25,14 +25,14 @@ window.addEventListener("load", () => {
         window.removeEventListener('wheel', preventScroll, { passive: false });
     }
 
-    // 스크롤을 막는 함수
+    //스크롤을 막는 함수
     function preventScroll(e) {
         e.preventDefault();
         e.stopPropagation();
         return false;
     }
 
-    // GNB 메뉴 클릭 시 해당 섹션으로 부드럽게 스크롤
+    //GNB 메뉴 클릭 시 해당 섹션으로 부드럽게 스크롤
     document.querySelectorAll('#gnb a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -59,7 +59,7 @@ window.addEventListener("load", () => {
 
 
 
-    // 휠 스크롤로 섹션 간 이동
+    //휠 스크롤로 섹션 간 이동
     const projectSection = document.querySelector(".project");
     const projectTitle = document.querySelector(".project_title");
 
@@ -69,14 +69,14 @@ window.addEventListener("load", () => {
 
         const delta = event.deltaY;
 
-        // 스크롤이 너무 작으면 동작 안함
+        //스크롤이 너무 작으면 동작 안하게 제한 두도록 구현
         if (Math.abs(delta) < scrollThreshold) return;
 
-        // 현재 섹션이 프로젝트 섹션일 경우
+        //현재 섹션이 프로젝트 섹션일 경우에는 따로 조건문을 만듬(보여줄게 많아서 끝나기 전까지는 섹션 이동을 하지 말아야하기 때문)
         if (currentSection === Array.from(sections).indexOf(projectSection)) {
             const projectTitleRect = projectTitle.getBoundingClientRect();
 
-            // project_title의 top이 header 높이와 만나면 이전 섹션으로 스크롤 이동 허용
+            //project_title의 top이 header 높이와 만나면 이전 혹은 다음 섹션(당장은 필요 없지만 혹시 섹션이 더 생기는걸 방지)으로 스크롤 이동 허용
             if (delta < 0 && projectTitleRect.top >= headerHeight) {
                 currentSection--;
             } else if (delta > 0 && currentSection < sections.length - 1) {
@@ -85,7 +85,7 @@ window.addEventListener("load", () => {
                 return;
             }
         } else {
-            // 프로젝트 섹션 외에서는 기존 방식으로 섹션 이동
+            //프로젝트 섹션 외에서는 기존 방식으로 섹션 이동
             if (delta > 0 && currentSection < sections.length - 1) {
                 currentSection++;
             } else if (delta < 0 && currentSection > 0) {
@@ -117,12 +117,14 @@ window.addEventListener("load", () => {
 
 
 
-    // 홈 섹션 애니메이션 실행
+    //홈 섹션 애니메이션 실행
     function startHomeAnimation() {
         const mainText1 = document.querySelector('.main1');
         const mainImg = document.querySelector('.main_img');
         homeAnimationFinished = false;
-
+        const main2 = document.querySelector('.main2');
+        const main3 = document.querySelector('.main3');
+        const main4 = document.querySelector('.main4');
         disableScroll(); // 애니메이션 시작 시 스크롤 비활성화
 
         setTimeout(() => {
@@ -159,41 +161,21 @@ window.addEventListener("load", () => {
             },
             onEnterBack: () => {
                 restartHomeAnimation();
-            },
-            onLeaveBack: () => {
-                resetMainAnimation();
             }
         });
     }
 
-    // 홈 섹션 애니메이션 초기화 함수
-    function resetMainAnimation() {
-        const mainText1 = document.querySelector('.main1');
-        const mainImg = document.querySelector('.main_img');
-
-        //opacity를 0으로 하고, 위치 및 클래스 초기화
-        gsap.set(mainText1, { opacity: 0 });
-        mainText1.classList.remove('moved');
-        gsap.set(mainImg, { opacity: 0 });
-
-    }
-
-    // 홈 섹션 애니메이션 재실행 함수
+    //홈 섹션 애니메이션 재실행을 만든 이유는 새로고침 하거나 링크를 통해 사이트를 들어왔을 때, 스크롤이 이상한데로 튀는 경향이 있음, 그래서 새로고침 할 때 고정이 되어야 하기 때문
+    //홈 섹션 애니메이션 재실행 함수
     function restartHomeAnimation() {
         animationCompleted = false;
         homeAnimationFinished = false;
         disableScroll();
-
         const mainText1 = document.querySelector('.main1');
         const mainImg = document.querySelector('.main_img');
-
-
         mainText1.style.opacity = 0;
         mainText1.classList.remove('moved');
-
-
         mainImg.style.opacity = 0;
-
 
         setTimeout(() => {
             mainText1.style.opacity = 1;
@@ -212,41 +194,45 @@ window.addEventListener("load", () => {
 
         ScrollTrigger.refresh();
     }
-    // 애니메이션 시작
+    //애니메이션 시작
     startHomeAnimation();
 
 
-
-
-
-
-
     /* 프로필 섹션 애니메이션 */
-    const profileLeft = document.querySelector('.profile_left');
-    const profileRight = document.querySelector('.profile_right');
+    const profileImage = document.querySelector('.profile_img');
+    const profileTextGroup = document.querySelectorAll('.personal, .education, .certificates, .experience'); // 그룹으로 묶음
 
-    gsap.set(profileLeft, { opacity: 0, x: -100 });
-    gsap.set(profileRight, { opacity: 0, x: 100 });
-
+    //프로필 이미지 애니메이션 설정
+    gsap.set(profileImage, { opacity: 0, x: -200 });
     ScrollTrigger.create({
-        trigger: ".profile",
+        trigger: profileImage,
         start: "top 80%",
-        end: "bottom 100%",
         onEnter: () => {
-            gsap.to(profileLeft, {
+            gsap.to(profileImage, {
                 opacity: 1,
                 x: 0,
-                duration: 0.9,
-                ease: "power2.out"
-            });
-            gsap.to(profileRight, {
-                opacity: 1,
-                x: 0,
-                duration: 0.9,
+                duration: 1,
                 ease: "power2.out"
             });
         }
     });
+
+    //프로필 텍스트 그룹 애니메이션 설정
+    gsap.set(profileTextGroup, { opacity: 0, x: 200 });
+    ScrollTrigger.create({
+        trigger: profileTextGroup[0],
+        start: "top 80%",
+        onEnter: () => {
+            gsap.to(profileTextGroup, {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: "power2.out",
+                stagger: 0
+            });
+        }
+    });
+
 
 
 
@@ -262,7 +248,7 @@ window.addEventListener("load", () => {
             gsap.to(skillContainer, {
                 opacity: 1,
                 y: 0,
-                duration: 0.7,
+                duration: 1,
                 ease: "power2.out"
             });
         }
@@ -306,7 +292,7 @@ window.addEventListener("load", () => {
                 y: 0,
                 scaleX: 1,
                 scaleY: 1,
-                duration: 0.7,
+                duration: 1,
                 ease: "power1.out"
             });
         }
@@ -322,22 +308,27 @@ window.addEventListener("load", () => {
     const modalDescription = document.getElementById('modal_description');
     const closeModal = document.querySelector('.close');
 
+    //각 .project_box 내의 .project_btn1 버튼에 클릭 이벤트 추가
     projectBoxes.forEach(box => {
-        box.addEventListener('click', () => {
-            const title = box.getAttribute('data-title');
-            const description = box.getAttribute('data-description');
-            const image = box.getAttribute('data-image');
-            const link = box.getAttribute('data-link');
+        const btn1 = box.querySelector('.project_btn1');
+        if (btn1) {
+            btn1.addEventListener('click', () => {
+                const title = box.getAttribute('data-title');
+                const description = box.getAttribute('data-description');
+                const image = box.getAttribute('data-image');
+                const link = box.getAttribute('data-link');
 
-            modalTitle.textContent = title;
-            modalImage.src = image;
-            modalDescription.innerHTML = description;
-            document.getElementById('modal_button').href = link;
+                modalTitle.textContent = title;
+                modalImage.src = image;
+                modalDescription.innerHTML = description;
+                document.getElementById('modal_button').href = link;
 
-            modal.style.display = "block";
-        });
+                modal.style.display = "block";
+            });
+        }
     });
 
+    // 모달 닫기 이벤트
     closeModal.addEventListener('click', () => {
         modal.style.display = "none";
     });
@@ -347,5 +338,4 @@ window.addEventListener("load", () => {
             modal.style.display = "none";
         }
     });
-        ScrollTrigger.refresh();
-    });
+});
