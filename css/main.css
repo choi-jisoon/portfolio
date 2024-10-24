@@ -231,7 +231,7 @@ color: var(--main-color);
 .skill_container {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
-   gap: 80px 120px;
+   gap: 100px 50px;
    width: 80%;
    margin: auto;
    opacity: 0;
@@ -245,23 +245,24 @@ color: var(--main-color);
    transition: transform 0.3s;
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
    color: #000;
-   margin-top: 30px;
+   background: none;
 }
 .box:hover {
    transform: scale(1.05);
 }
 .box img {
-   width: 40%;
+   width: 40%
 }
+
 .skill_container .box p:nth-of-type(1) {
    font-size: 18px;font-weight: 700;font-family: var(--title-font);
    margin: 30px 0 18px;
 }
-.skill_container .box p {line-height: 1.6em;}
 
+.skill_container .box p {line-height: 1.6em;}
+/* .skill_container .react {margin-top: -21px;} */
 /* project */
 .project {
    width: 100%;
@@ -299,15 +300,17 @@ color: var(--main-color);
    justify-content: center;
    align-items: center;
    font-family: var(--title-font);
+   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.project_box:hover {
-   transform: scale(1.05) !important;
+.project_box:hover img{
+   transform: scale(1.1) !important;
 }
 
 .project_box img {
    width: 100%;
    height: 100%;
+   transition: transform 0.3s;
    object-fit: cover; /* 이미지가 박스에 맞게 채워지도록 수정 */
 }
 
