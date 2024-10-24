@@ -26,7 +26,6 @@ body {
    font-family: notosans, 'pretendard';
 }
 section {
-   /* scroll-margin-top: 100px; */
    height: 100vh;
 }
 section h2 {
@@ -109,15 +108,6 @@ header nav ul#gnb>li>a {
    font-family: 'Paperlogy', sans-serif;
 }
 
-/* .main_page video {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   position: absolute;
-   top: 0;
-   left: 0;
-   z-index: 1;
-} */
 
 
 .main1{
@@ -152,28 +142,20 @@ header nav ul#gnb>li>a {
 top: 35%;
 left: 15%;
 color: var(--main-color)
-
-/* transform: translate(-20%, -100px); */
 }
 
 .main3 {
 top: 52%;
 left: 15%;
-/* transform: translate(-11%, -100px); */
 }
 
 .main4 {
 top: 68%;
 left: 15%;
 color: var(--main-color);
-/* transform: translate(-15%, -100px); */
 }
 
 
-/* .visible {
-opacity: 1;
-transform: translateY(0);
-} */
 
 .main_img {
    opacity: 0; transition: opacity 1.5s ease;
@@ -218,34 +200,33 @@ transform: translateY(0);
    grid-template-rows: repeat(2, 1fr);
    font-size: 18px;font-weight: 500;
    line-height: 1.5em;
+   margin-left: 65px;
 }
 .profile_content strong {
    display: block;
    font-size: 22px;font-weight: 700;
    font-family: var(--title-font);
-   margin-bottom: 20px; margin-top: 40px;
+   margin-bottom: 20px; margin-top: 50px;
 }
 .profile_content li {padding: 8px 0;}
 
 .profile_img {
-   padding-right: 150px;
+   padding-right: 100px;
    grid-row: 1 / 3;
-   width: 500px;height: 500px;
-
+   width: 500px; height: 500px;
 }
 .profile_img img {
-   width: 100%;height: 100%;
+   width: 100%; height: 100%;
    object-fit: cover;
 }
 .personal {font-family: var(--title-font);}
-.personal li ,.education li, .certificates li, .experience li{font-size: 16px !important;}
+.personal li ,.education li, .certificates li, .experience li {font-size: 16px !important;}
 
 /* skill */
 .skill {
-   width: 100%; height: 100vh; z-index: 9999;
+   width: 100%;
    margin-top: 90px;
 }
-
 
 .skill_container {
    display: grid;
@@ -359,7 +340,6 @@ transform: translateY(0);
 
 /* 버튼 컨테이너 */
 .project_btn_container {
-
    width: 30%;
    height: 10%;
    display: flex;
