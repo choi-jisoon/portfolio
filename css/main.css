@@ -262,6 +262,11 @@ color: var(--main-color);
    }
 }
 @media (max-width: 430px) {
+   .moved {
+      left: 19%;
+      top: 20%;
+      transition: left 1.0s ease-in-out, top 1.0s ease-in-out;
+   }
    .main2 {
       left: 13.2%;
    }
