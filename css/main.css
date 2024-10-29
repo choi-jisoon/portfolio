@@ -104,9 +104,7 @@ header nav ul#gnb>li>a {
       gap: 20px;
    }
    header nav ul#gnb>li>a {
-
       font-size: 14px;
-
    }
 }
 
@@ -802,11 +800,15 @@ color: var(--main-color);
    }
 
    .project_btn_container {
-      width: 50%;
-      gap: 5px;
+      width: 30%;
    }
-
-   .project_btn_container {
-      width: 20%;
+   .project_btn1 {
+      width: 50px;
+      height: 50px;
+   }
+   .project_btn2 {
+      width: 50px;
+      height: 50px;
+      font-size: 8px;
    }
 }
