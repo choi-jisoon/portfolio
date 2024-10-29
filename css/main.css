@@ -268,13 +268,13 @@ color: var(--main-color);
       transition: left 1.0s ease-in-out, top 1.0s ease-in-out;
    }
    .main2 {
-      left: 13.2%;
+      left: 13%;
    }
    .main3 {
-      left: 13.2%;
+      left: 13%;
    }
    .main4 {
-      left: 13.2%;
+      left: 13%;
    }
 
 }
