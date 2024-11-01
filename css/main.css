@@ -762,7 +762,7 @@ color: var(--main-color);
       margin-right: 15px;
    }
 }
-@media (max-width: 876px) {
+@media (max-width: 946px) {
    .project_overlay p {
       width: 47%;
 

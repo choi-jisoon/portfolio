@@ -60,7 +60,7 @@ window.addEventListener("load", () => {
 
 
     //휠 스크롤로 섹션 간 이동
-    const projectSection = document.querySelector(".project");
+    /* const projectSection = document.querySelector(".project");
     const projectTitle = document.querySelector(".project_title");
 
 
@@ -111,7 +111,7 @@ window.addEventListener("load", () => {
         });
 
         event.preventDefault();
-    }, { passive: false });
+    }, { passive: false }); */
 
 
 
@@ -145,9 +145,9 @@ window.addEventListener("load", () => {
         }, 2500);
 
         const ani3 = gsap.timeline();
-        ani3.from('.main_page .main2', { xPercent: -300, autoAlpha: 0 })
-            .from('.main_page .main3', { xPercent: 300, autoAlpha: 0 })
-            .from('.main_page .main4', { xPercent: -300, autoAlpha: 0 });
+        ani3.from(main2, { xPercent: -300, autoAlpha: 0 })
+            .from(main3, { xPercent: 300, autoAlpha: 0 })
+            .from(main4, { xPercent: -300, autoAlpha: 0 });
 
         ScrollTrigger.create({
             animation: ani3,
