@@ -692,12 +692,16 @@ color: var(--main-color);
    color: #FFF;
 }
 .modal_content #modal_image {
-   width: 80%;
+   width: 60%; height: 40%;
 }
 
 .modal_content #modal_description .pfirst {
    font-weight: 510;
    margin-bottom: 20px;
+}
+
+.modal_content #modal_description strong {
+   background: none; color: red;
 }
 
 .modal_content #modal_description {
