@@ -121,6 +121,7 @@ header nav ul#gnb>li>a {
    height: 100vh;
    font-family: 'Paperlogy', sans-serif;
    background: pink;
+   padding-bottom: 100px;
 }
 
 

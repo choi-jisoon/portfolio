@@ -7,26 +7,10 @@ let isScrolling = false;
 let animationCompleted = false;
 let homeAnimationFinished = false;
 
-// // 스크롤 비활성화 함수
-// function disableScroll() {
-//     window.addEventListener('wheel', preventScroll, { passive: false });
-// }
-
-// // 스크롤 활성화 함수
-// function enableScroll() {
-//     window.removeEventListener('wheel', preventScroll, { passive: false });
-// }
-
-// // 스크롤 방지 함수
-// function preventScroll(e) {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     return false;
-// }
 
 // 스크롤 애니메이션 함수 (gsap 없이)
 function smoothScrollTo(targetPosition, duration = 600) {
-    const startPosition = window.pageYOffset;
+    const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
     let startTime = null;
 
@@ -53,15 +37,20 @@ function smoothScrollTo(targetPosition, duration = 600) {
     requestAnimationFrame(animation);
 }
 
-// 휠 이벤트로 섹션 이동 (gsap 없이)
+
 sections.forEach((section, index) => {
     section.addEventListener("wheel", (e) => {
-        if (isScrolling || (index === 0 && !homeAnimationFinished)) return; // 애니메이션 중이거나 홈 애니메이션이 끝나지 않았으면 중단
+        if (isScrolling || (index === 0 && !homeAnimationFinished)) return;
 
         let delta = e.deltaY;
         let moveTop;
 
-        // 아래로 스크롤
+        // project 섹션에서 상단이 뷰포트에 도달했을 때만 이전 섹션으로 이동하도록 설정
+        if (index === sections.length - 1 && delta < 0) {
+            const projectTop = section.offsetTop;
+            if (window.scrollY > projectTop) return;
+        }
+        // 아래로 스크롤 할 때
         if (delta > 0) {
             if (index < sections.length - 1) {
                 moveTop = sections[index + 1].offsetTop;
@@ -70,12 +59,11 @@ sections.forEach((section, index) => {
                 return;
             }
         }
-        // 위로 스크롤
+        // 위로 스크롤 할 때
         else {
             if (index > 0) {
                 moveTop = sections[index - 1].offsetTop;
                 currentSection = index - 1;
-                console.log(sections[index - 1].offsetTop)
             } else {
                 return;
             }
@@ -85,6 +73,8 @@ sections.forEach((section, index) => {
         smoothScrollTo(moveTop);
     }, { passive: false });
 });
+
+
 const mainText1 = document.querySelector('.main1');
 const mainImg = document.querySelector('.main_img');
 homeAnimationFinished = false;
@@ -118,90 +108,10 @@ ScrollTrigger.create({
     smoothScrollTo(document.querySelector('#profile').offsetTop)
     console.log(document.querySelector('#profile').offsetTop)
     },
-//    onEnterBack: () => {
-//        restartHomeAnimation();
-//    }
 });
 
-// 홈 섹션 애니메이션
-// function startHomeAnimation() {
-//     const mainText1 = document.querySelector('.main1');
-//     const mainImg = document.querySelector('.main_img');
-//     homeAnimationFinished = false;
-//     const main2 = document.querySelector('.main2');
-//     const main3 = document.querySelector('.main3');
-//     const main4 = document.querySelector('.main4');
-//     disableScroll();
 
-//     setTimeout(() => {
-//         mainText1.style.opacity = 1;
-//     }, 500);
-
-//     setTimeout(() => {
-//         mainText1.classList.add('moved');
-//     }, 1000);
-
-//     setTimeout(() => {
-//         mainImg.style.opacity = 1;
-//     }, 1500);
-
-//     setTimeout(() => {
-//         homeAnimationFinished = true;
-//         enableScroll();
-//     }, 2500);
-
-//     const ani3 = gsap.timeline();
-//     ani3.from(main2, { xPercent: -300, autoAlpha: 0 })
-//         .from(main3, { xPercent: 300, autoAlpha: 0 })
-//         .from(main4, { xPercent: -300, autoAlpha: 0 });
-
-//     ScrollTrigger.create({
-//         animation: ani3,
-//         trigger: '.main_page',
-//         start: 'top top',
-//         end: '+=100%',
-//         pin: true,
-//         scrub: 1,
-//         onLeave: () => {
-//             animationCompleted = true;
-//         },
-//         onEnterBack: () => {
-//             restartHomeAnimation();
-//         }
-//     });
-// }
-
-// function restartHomeAnimation() {
-//     animationCompleted = false;
-//     homeAnimationFinished = false;
-//     disableScroll();
-//     const mainText1 = document.querySelector('.main1');
-//     const mainImg = document.querySelector('.main_img');
-//     mainText1.style.opacity = 0;
-//     mainText1.classList.remove('moved');
-//     mainImg.style.opacity = 0;
-
-//     setTimeout(() => {
-//         mainText1.style.opacity = 1;
-//         mainText1.classList.add('moved');
-//     }, 1500);
-
-//     setTimeout(() => {
-//         mainImg.style.opacity = 1;
-//     }, 2000);
-
-//     setTimeout(() => {
-//         homeAnimationFinished = true;
-//         enableScroll();
-//     }, 2300);
-
-//     ScrollTrigger.refresh();
-// }
-
-// startHomeAnimation();
-
-
-// 스크롤 애니메이션의 마무리 작업
+// profile 섹션
 const profileImage = document.querySelector('.profile_img');
 const profileTextGroup = document.querySelectorAll('.personal, .education, .certificates, .experience');
 
@@ -233,7 +143,7 @@ ScrollTrigger.create({
         });
     }
 });
-//    console.log(document.querySelector('header').clientHeight)
+
 
 //스킬 섹션 애니메이션
 const skillContainer = document.querySelector('.skill_container');
@@ -241,9 +151,7 @@ gsap.set(skillContainer, { opacity: 0, y: 100 });
 
 ScrollTrigger.create({
     trigger: ".skill",
-    // start: 'top top',
-    /* end: "bottom 100%", */
-//    markers: true,
+
     onEnter: () => {
         gsap.to(skillContainer, {
             opacity: 1,
