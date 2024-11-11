@@ -334,11 +334,11 @@ color: var(--main-color);
    .profile_content strong {font-size: 16px;}
    .personal li ,.education li, .certificates li, .experience li {font-size: 12px !important;}
 }
-@media (max-width: 700px) {
+@media (max-width: 750px) {
    #profile {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 50px;
       align-items: center;
    }
 
@@ -352,7 +352,7 @@ color: var(--main-color);
    }
 
    .profile_img {
-      width: 70%;
+      width: 60%;
       height: auto;
       margin: 0 auto;
       padding: 0;
@@ -467,10 +467,10 @@ color: var(--main-color);
    margin: 30px 0 18px;
 }
 
-.skill_container .box p {line-height: 1.6em;}
+.skill_container .box p {font-size: 15px; line-height: 1.6em;}
 /* .skill_container .react {margin-top: -21px;} */
 @media (max-width: 1650px) {
-   .skill_container .box p {font-size: 15px;}
+   .skill_container .box p {font-size: 14px;}
 }
 @media (max-width: 1500px) {
    .skill_container .box p:nth-of-type(1) {
@@ -509,7 +509,9 @@ color: var(--main-color);
       grid-template-columns: repeat(2, 1fr);
       gap: 30px 0px;
       width: 90%;
-
+   }
+   .skill_title {
+      margin-top: -40px;
    }
 
    .box img {
@@ -519,6 +521,10 @@ color: var(--main-color);
    .skill_container .box p:nth-of-type(1) {
       font-size: 16px;
       margin: 20px 0 10px;
+   }
+   .skill_container .box p:nth-of-type(2) {
+      font-size: 11px;
+
    }
 }
 
