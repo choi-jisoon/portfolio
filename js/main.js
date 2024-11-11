@@ -8,8 +8,8 @@ let animationCompleted = false;
 let homeAnimationFinished = false;
 
 
-// 스크롤 애니메이션 함수 (gsap 없이)
-function smoothScrollTo(targetPosition, duration = 600) {
+// 스크롤 애니메이션 함수
+function smoothScrollTo(targetPosition, duration = 800) {
     const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
     let startTime = null;

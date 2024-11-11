@@ -120,7 +120,7 @@ header nav ul#gnb>li>a {
    width: 100%;
    height: 100vh;
    font-family: 'Paperlogy', sans-serif;
-   background: pink;
+   /* background: pink; */
    padding-bottom: 100px;
 }
 
@@ -291,7 +291,7 @@ color: var(--main-color);
    display: flex;flex-direction: column;
    gap: 150px;
    align-items: center;
-   background: gold;
+   /* background: gold; */
 }
 .profile_content {
    display: grid;gap: 0px 100px;
@@ -379,7 +379,7 @@ color: var(--main-color);
       height: auto;
       margin: 0 auto;
       padding: 0;
-      grid-column: span 2; /* 이미지가 전체 열을 차지하도록 유지 */
+      grid-column: span 2;
    }
 
    .profile_img img {
@@ -389,7 +389,7 @@ color: var(--main-color);
 
    .profile_content strong {
       font-size: 18px;
-      margin-top: 10px; /* 제목의 상단 여백을 줄여서 간격을 좁힙니다 */
+      margin-top: 10px;
       margin-bottom: 5px;
       grid-column: span 2;
    }
@@ -398,7 +398,7 @@ color: var(--main-color);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px; /* 각 항목의 간격을 줄여서 밀착 배치 */
+      gap: 3px;
    }
 
    .personal li, .education li, .certificates li, .experience li {
@@ -427,7 +427,7 @@ color: var(--main-color);
       height: auto;
       margin: 0 auto;
       padding: 0;
-      grid-column: span 2; /* 이미지가 전체 열을 차지하도록 유지 */
+      grid-column: span 2;
    }
 
    .profile_img img {
@@ -437,7 +437,7 @@ color: var(--main-color);
 
    .profile_content strong {
       font-size: 18px;
-      margin-top: 10px; /* 제목의 상단 여백을 줄여서 간격을 좁힙니다 */
+      margin-top: 10px;
       margin-bottom: 5px;
       grid-column: span 2;
    }
@@ -458,7 +458,7 @@ color: var(--main-color);
 /* skill */
 .skill {
    width: 100%;
-   background: orange;
+   /* background: orange; */
 }
 
 .skill_container {
@@ -533,19 +533,19 @@ color: var(--main-color);
 @media (max-width: 730px) {
    .skill_container {
       margin-top: -30px;
-      grid-template-columns: repeat(2, 1fr); /* 2열로 변경하여 두 개씩 배치 */
-      gap: 30px 0px; /* 줄 간격과 열 간격을 조정하여 공간 절약 */
-      width: 90%; /* 화면에 맞게 너비를 조정 */
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 0px;
+      width: 90%;
 
    }
 
    .box img {
-      width: 20%; /* 이미지 크기 조절 */
+      width: 20%;
    }
 
    .skill_container .box p:nth-of-type(1) {
-      font-size: 16px; /* 글자 크기 조정 */
-      margin: 20px 0 10px; /* 텍스트 위아래 여백을 줄여 공간 절약 */
+      font-size: 16px;
+      margin: 20px 0 10px;
    }
 }
 
@@ -598,7 +598,7 @@ color: var(--main-color);
    width: 100%;
    height: 100%;
    transition: transform 0.3s;
-   object-fit: cover; /* 이미지가 박스에 맞게 채워지도록 수정 */
+   object-fit: cover;
 }
 
 .project_overlay {
@@ -608,9 +608,9 @@ color: var(--main-color);
    align-items: last baseline;
    width: 100%;
    height: 100%;
-   background-color: rgba(0, 0, 0, 0.8); /* 어두운 오버레이 배경 */
+   background-color: rgba(0, 0, 0, 0.8);
    color: #fff;
-   opacity: 0; /* 호버 시 나타나도록 설정 */
+   opacity: 0;
    transition: opacity 0.3s ease;
 }
 
