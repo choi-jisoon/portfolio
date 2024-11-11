@@ -406,9 +406,9 @@ color: var(--main-color);
    }
 }
 @media (max-width: 576px) {
-   section {
+   /*  section {
       scroll-margin-top: 100px;
-   }
+   } */
    #profile {
       gap: 70px;
    }
